@@ -1,0 +1,67 @@
+.Testimonials{
+    background: #F8F8F8;
+    margin-top: 100px;
+    display: flex;
+    padding-top: 100px;
+    justify-content: space-between;
+    margin:0 auto;
+    margin-top: 140px;
+    height: 774px;
+    
+}
+.second__title{
+    display: flex;
+    color: #000;
+    text-align: left;
+    font-family: "Playfair Display";
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 50px; /* 138.889% */
+    width: 481px;
+    height: 50px;
+    
+}
+.second__page{
+    padding-left: 50px;
+}
+.second__stars{
+    padding-top: 145px;
+}
+.second__paragraph{
+    color: #000;
+font-family: Mulish;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 36px; /* 150% */
+width: 450px;
+height: 144px;
+padding-top: 20px;
+}
+
+.men__cam{
+    width: 384px;
+    height: 491px;
+    border-radius: 14px;
+    margin-left: 700px;
+    margin-top: -520px;
+   
+}
+.bio{
+    color: #000;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; /* 218.182% */
+}
+.bio2{
+    color: rgba(0, 0, 0, 0.85);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 48px; /* 266.667% */
+    padding-bottom: 5px;
+}
