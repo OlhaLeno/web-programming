@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thousand</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <nav class="top-nav">
+                <div class="logo">
+                    <img src="/images/logo.png" alt="Logo">
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Destinations</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Partner</a></li>
+                </ul>
+
+                <div class="auth-buttons">
+                    <a href="#" class="login-btn">Login</a>
+                    <a href="#" class="register-btn">Register</a>
+                </div>    
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <div class="guides-by">
+                <h1>Guides by Thousand<br>Sunny</h1>
+                <p>Packed with tips and advice from our on-the-ground<br>
+                experts, our city guides app (iOS and Android) is the<br>
+                ultimate resource before and during a trip.</p>
+                <a href="#" class="download-link">Download</a>
+            </div>
+            <div class="image-container">
+            <img src="images/Thousand-03.png" alt="Thousand" class="central-photo">
+            </div>
+        </section>
+
+        <section class="Testimonials">
+        <div class="container">
+            <div class="second__page">
+                <div class="second_text">
+                    <h2 class="second__title">Testimonials</h2>
+                    <img src="/images/stars.png" class="second__stars">
+                    <p class="second__paragraph">
+                        “Quisque in lacus a urna fermentum<br>
+                        euismod. Integer mi nibh, dapibus ac<br>
+                        scelerisque eu, facilisis quis purus. Morbi<br>
+                        blandit sit amet turpis nec”
+                    </p>
+                    <p class="bio">Edward Newgate</p>
+                    <p class="bio2">Founder Circle</p>
+                </div>
+                <img src="/images/image 6.png" alt="Edward Newgate" class="men__cam">
+            </div>
+        </div>
+    </section>
+
+
+        <section class="trending-stories">
+            <div class="container">
+            <div class="trending-header">
+                <h2 class="trending-title">Trending stories</h2>
+                <a href="#" class="view-all">View all ></a>
+            </div>
+            <div class="blogs-grid">
+                <div class="blog">
+                    <img src="images/relaxedWoman.svg" alt="Benefits of taking a healing holiday">
+                    <h3>The many benefits of<br>
+                        taking a healing holiday</h3>
+                    <p>‘Healing holidays’ are on the rise<br>
+                        to help maximise your health and<br>
+                        happiness...</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div class="blog">
+                    <img src="/images/food.svg" alt="Kyoto restaurant">
+                    <h3>The best Kyoto restaurant<br> 
+                        to try Japanese food</h3>
+                    <p>From tofu to teahouses, here’s our<br> 
+                        guide to Kyoto’s best restaurants<br> 
+                        to visit...</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div class="blog">
+                    <img src="images/buildings.svg" alt="Yucatan trip">
+                    <h3>Skip Chichen Itza and head<br> 
+                        to this remote Yucatan</h3>
+                    <p>It’s remote and challenging to get,<br> 
+                        but braving the jungle and exploring<br> 
+                        these ruins without the...</p>
+                    <a href="#">Read more</a>
+                </div>
+                <div class="blog">
+                    <img src="images/surf.svg" alt="Surfing spots">
+                    <h3>Surf’s up at these beginner<br> 
+                        spots around the world</h3>
+                    <p>If learning to surf has been on your to-<br>
+                        do list for a while, the good news<br> 
+                        is: it’s never too late...</p>
+                    <a href="#">Read more</a>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <img src="/images/logo.png" class="footer__logo" alt="Logo">
+                    <p class="footer__text">©2020 Thousand Sunny. All rights reserved</p>
+                </div>
+                <hr class="footer__hr">
+                <div class="footer__bottom">
+                    <a href="#" class="fab fa-twitter"><img src="/images/Frame.svg"></a>
+                    <a href="#" class="fab fa-facebook-f"><img src="/images/Frame2.svg"></a>
+                    <a href="#" class="fab fa-instagram"><img src="/images/Frame3.svg"></a>
+                    <a href="#" class="fab fa-linkedin-in"><img src="/images/Frame4.svg"></a>
+                    <a href="#" class="fab fa-youtube"><img src="/images/Frame5.svg"></a>
+                </div>
+            </div>
+        </footer>  
+    </div>
+
+    <script>
+        
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,50 @@
+.mulish-font {
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.playfair-display-font {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+.inter-font {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: white;
+    display: contents;
+    margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        text-align: center;
+    }
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;    
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        padding: 0 40px;
+    }
+}
+
+li{
+    display: block;
+}
+a{
+    text-decoration: none;
+}
+

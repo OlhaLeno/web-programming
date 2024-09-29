@@ -1,0 +1,143 @@
+.trending-stories { 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.trending-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.trending-title {
+    color: #000;
+    font-family: "Playfair Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 50px;
+}
+
+.view-all {
+    color: #FB8F1D;
+    font-family: "Inter",sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 60px; 
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+    color: #000;
+    transform: translateX(5px);
+}
+
+.container {
+    max-width: 1140px;
+}
+
+.blogs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; 
+    padding-top: 20px;
+}
+
+.blog {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.blog img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px 10px 0 0;   
+}
+
+.blog h3 {
+    color: #000;
+    font-family: "Inter",sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; 
+}
+
+.blog p {
+    color: #7D7987;
+    font-family: "Inter",sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px; 
+}
+
+.blog a {
+    color: #FB8F1D;
+    font-family: "Inter",sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px; 
+    padding-top: 23px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.blog a:hover {
+    text-decoration: underline;
+    color: #000;
+    transform: translateX(5px);
+}
+@media (max-width: 768px) {
+    .trending-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .trending-title {
+        font-size: 35px;
+        line-height: 50px;
+    }
+
+    .view-all {
+        font-size: 17px; 
+        line-height: 40px;
+        margin-top: 10px;
+    }
+
+    .blogs-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+
+    .blog {
+        padding: 15px;
+    }
+
+    .blog h3 {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .blog p {
+        font-size: 18px; 
+        line-height: 22px;
+    }
+
+    .blog a {
+        font-size: 15px; 
+        line-height: 24px;
+    }
+}
+@media (max-width: 426px) {
+    .blogs-grid {
+        grid-template-columns: 1fr; 
+        gap: 15px;
+    }
+}

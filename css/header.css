@@ -1,0 +1,127 @@
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    padding-top: 35px;
+}
+
+.nav-links a {
+    font-family: "Inter",sans-serif;
+    text-decoration: none;
+    color:#B8BECD;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover{
+    font-weight: 500;
+    color: #FB8F1D;
+}
+
+.logo {
+    padding-top: 37px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 18px;
+    padding-top: 35px;
+    font-family: "Inter", sans-serif;
+}
+
+.login-btn, .register-btn {
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.login-btn {
+    background-color: #fff;
+    border: 2px solid #FB8F1D;
+    color: #FB8F1D;
+    border-radius: 5px;
+    width: 132px;
+    height: 44px;
+    border-radius: 8px;
+}
+
+.login-btn:hover{
+    background-color:#FB8F1D;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.register-btn {
+    background-color: #FB8F1D;
+    color: white;
+    border-radius: 8px;
+    width: 132px;
+    height: 44px;
+    line-height: 24px;
+}
+
+.register-btn:hover{
+    background-color: #fff;
+    color: #FB8F1D;
+    border: 2px solid;
+    transform: scale(1.1);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: #fff;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+}
