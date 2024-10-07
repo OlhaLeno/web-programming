@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a class="nav_btn">Моя бібліотека</a>
+            <a class="nav_btn">Вподобані книжки</a>
+            <input type="text" placeholder="Введіть назву книжки" class="search-bar" id="search-bar">
+            <a class="search-btn" id="search-btn">Пошук</a>
+            <a class="clear-btn" id="clear-btn">Очистити</a>
+        </nav>
+    </header>
+
+    <main>
+        <aside>
+            <h2>Керувати книгами</h2>
+            <div class="label-switch">
+                <label for="sort-expensive">Посортувати від</label>
+                <label for="sort-expensive">найдорожчої книги</label>
+                <label class="switch">
+                    <input type="checkbox" id="sort-expensive">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="label-switch">
+                <label for="sort-cheap">Посортувати від</label>
+                <label for="sort-cheap">найдешевшої книги</label>
+                <label class="switch">
+                    <input type="checkbox" id="sort-cheap">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <button class="count-btn" id="count-btn">Порахувати загальну вартість</button>
+            <p>Загальна вартість: <span class="total-expenses">грн</span></p>
+        </aside>
+        
+        <section class="books-cards" id="books-cards">
+           
+        </section>
+    </main>
+
+</body>
+</html>

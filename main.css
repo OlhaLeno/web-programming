@@ -1,0 +1,65 @@
+main {
+    display: flex;
+    margin-bottom: 25px;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.add-btn {
+    background-color: #fd512b;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.like-btn {
+    background-color: #fab828;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.book-card .book {
+    height: 210px;
+    width: 150px;
+}
+
+.book-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+.book-card p {
+    font-size: 18px; 
+    line-height: 1.5;
+}
+
+button {
+    font-size: 16px;
+    margin: auto;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+    margin-top: 20px; 
+}
+
+button.add-btn {
+    margin-left: 0; 
+}
+
+button.like-btn {
+    margin-left: auto;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
