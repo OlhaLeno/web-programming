@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.edit-page.css">
+    <script src="script.edit-page.js" defer></script>
+    <title>Edit Page</title>
+</head>
+<body>
+    
+    <header>
+        <nav>
+            <a class="nav-btn" href="../mainPage/lab4.index.html">На головну</a>
+        </nav>
+    </header>
+
+    <main class="container-main">
+        <section class="forms-library" id="forms-library">
+            <h2>Редагуйте книжку:</h2>
+            <form id="libraryForm">
+                <div class="form-group">
+                    <label for="title">Назва книжки</label>
+                    <input type="text" id="title" name="title" placeholder="Назва..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Опис книжки</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Опис..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Ціна</label>
+                    <textarea id="price" name="price" rows="1" placeholder="Введіть ціну..." required></textarea>
+                </div>
+
+                <button type="sumbit">Редагувати</button>
+                <button type="button" id="deleteButton">Видалити книжку</button>
+                <div id="errorMessage" class="error-message" style="display: none;">
+                    Ой, щось пішло не так. Перевірте введені дані та спробуйте ще раз!
+                </div>
+            </form>
+    
+
+        </section>
+    </main>
+</body>
+</html>
