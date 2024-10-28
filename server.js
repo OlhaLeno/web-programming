@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 let books = [
     {
         title: "Хірург - Тесс Геррітсен",
-        price: 270,
+        price: 290,
         imgSrc: "img/surgeon.jpg",
         description: `"Судовий антрополог Девід Гантер утратив дружину і дочку. <br>
                     Покинувши роботу, він переїздить до містечка Менем та влаштовується на <br>
@@ -22,7 +22,7 @@ let books = [
     },
     {
         title: "Нотатки ненависті - Ві Кіланд, Пенелопа Уорд",
-        price: 300,
+        price: 310,
         imgSrc: "img/notatku-nenavuski.jpg",
         description: `"Шарлотта завжди мріяла про мить, коли вбереться у весільну сукню, <br>
                     але аж ніяк не про день, коли її доведеться продавати, так і не одягнувши…
@@ -54,7 +54,7 @@ let books = [
     },
     {
         title: "Випадкові наречені - Крістіна Лорен",
-        price: 300,
+        price: 340,
         imgSrc: "img/vupadkovi-narecheni.jpg",
         description: `"Сестри-близнючки Олів та Емілія мають геть різну вдачу.<br> 
                     В Олів ніколи ні з чим не складалося — ані в кар’єрі, ані в коханні. <br>
@@ -104,7 +104,7 @@ app.get('/api/books/search', (req, res) => {
 });
 
 app.get('/api/books/sort', (req, res) => {
-    const query = req.query.q ? req.query.q.toLowerCase() : null;
+    const query = req.query.q ? req.query.q.toLowerCase().trim() : null;
     const order = req.query.order === 'asc' ? 1 : -1;
     const sortBy = req.query.sortBy || 'price';
 
@@ -112,7 +112,16 @@ app.get('/api/books/sort', (req, res) => {
         ? books.filter(book => book.title.toLowerCase().includes(query)) 
         : books;
 
-    filteredBooks = filteredBooks.slice().sort((a, b) => {
+    if (query) {
+        filteredBooks = filteredBooks.sort((a, b) => {
+            const aMatches = a.title.toLowerCase().indexOf(query);
+            const bMatches = b.title.toLowerCase().indexOf(query);
+            return (aMatches - bMatches) * order;
+        });
+    }
+
+   
+    filteredBooks = filteredBooks.sort((a, b) => {
         if (sortBy === 'price') {
             return (a.price - b.price) * order;
         } else if (sortBy === 'readers') {
