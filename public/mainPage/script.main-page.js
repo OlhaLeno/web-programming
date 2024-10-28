@@ -4,22 +4,23 @@ const searchBtn = document.querySelector('#search-btn');
 const clearBtn = document.querySelector('#clear-btn');
 const sortExpensive = document.querySelector('#sort-expensive');
 const sortCheap = document.querySelector('#sort-cheap');
-const totalExpenses = document.querySelector('.total-expenses');
+const totalExpensesElement = document.querySelector('.total-expenses');
 
 let originalOrder = [];
-
+let currentBooks = []; 
 
 async function loadBooks() {
     try {
         const response = await fetch('/api/books');
         const books = await response.json();
-        displayBooks(books);
+        currentBooks = books; 
+        displayBooks(currentBooks);
         originalOrder = Array.from(booksCards.children); 
+        await getTotalPrice();
     } catch (error) {
         console.error('Error loading books:', error);
     }
 }
-
 
 function displayBooks(books) {
     booksCards.innerHTML = ''; 
@@ -32,68 +33,42 @@ function displayBooks(books) {
             <img src="${book.imgSrc}" alt="book-${index + 1}" class="book">
             <p>${book.description}</p>
             <h4>Price: ${book.price} грн</h4>
-            
             <hr>
         `;
         booksCards.appendChild(bookCard);
     });
 }
 
-async function sortBooks(sortBy, order) {
-    try {
-        const response = await fetch(`/api/books/sort?sortBy=${sortBy}&order=${order}`);
-        if (!response.ok) {
-            throw new Error('Error fetching sorted books');
+function sortCurrentBooks(sortBy, order) {
+    currentBooks = currentBooks.slice().sort((a, b) => {
+        if (sortBy === 'price') {
+            return order === 'asc' ? a.price - b.price : b.price - a.price;
         }
-        const sortedBooks = await response.json();
-        displayBooks(sortedBooks); 
-    } catch (error) {
-        console.error('Error:', error);
-    }
+        return 0;
+    });
+    displayBooks(currentBooks);
 }
 
-
-
-sortExpensive.addEventListener('change', () => {
-    if (sortExpensive.checked) {
-        sortBooks('price', 'desc');
-    }
-});
-
-sortCheap.addEventListener('change', () => {
-    if (sortCheap.checked) {
-        sortBooks('price', 'asc');
-    }
-});
-
-
-
-searchBtn.addEventListener('click', async () => {
-    const query = searchBar.value.trim().toLowerCase();
-
-    if (query === '') {
-        alert('Please enter a search term');
-        return;
-    }
-
+async function searchBooks(query) {
     try {
         const response = await fetch(`/api/books/search?q=${encodeURIComponent(query)}`);
         if (!response.ok) {
             if (response.status === 404) {
                 booksCards.innerHTML = '<p>No books found.</p>';
+                totalExpensesElement.textContent = '0 грн';
+                currentBooks = []; 
                 return;
             }
             throw new Error('Error fetching books');
         }
-
-        const filteredBooks = await response.json();
-        displayBooks(filteredBooks);
+        currentBooks = await response.json(); 
+        displayBooks(currentBooks);
+        await getTotalPrice(query);
     } catch (error) {
         console.error('Error searching for books:', error);
         booksCards.innerHTML = '<p>There was an error fetching the books.</p>';
     }
-});
-const totalExpensesElement = document.querySelector('.total-expenses');
+}
 
 async function getTotalPrice(query = '') {
     try {
@@ -101,52 +76,45 @@ async function getTotalPrice(query = '') {
         if (!response.ok) {
             throw new Error('Error fetching total price');
         }
-
         const data = await response.json();
-        totalExpensesElement.textContent = ` ${data.totalPrice} грн`;
+        totalExpensesElement.textContent = `${data.totalPrice} грн`;
     } catch (error) {
         console.error('Error:', error);
     }
-    
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    getTotalPrice();
-});
-
-
-searchBtn.addEventListener('click', () => {
-    const query = searchBar.value.trim().toLowerCase();
-    getTotalPrice(query);
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    getTotalReaders();
-});
-
-
-searchBtn.addEventListener('click', () => {
-    const query = searchBar.value.trim().toLowerCase();
-    getTotalReaders(query);
-});
-
-
-
-clearBtn.addEventListener('click', async () => {
-    searchBar.value = ''; 
-
-    await loadBooks(); 
-
+function clearSearchAndFilters() {
+    searchBar.value = '';
+    loadBooks(); 
     sortExpensive.checked = false; 
     sortCheap.checked = false;
+}
 
-    totalExpenses.textContent = '0'; 
+searchBtn.addEventListener('click', () => {
+    const query = searchBar.value.trim().toLowerCase();
+    if (query) {
+        searchBooks(query);
+    } else {
+        alert('Please enter a search term');
+    }
 });
 
+sortExpensive.addEventListener('change', () => {
+    if (sortExpensive.checked) {
+        sortCurrentBooks('price', 'desc');
+        sortCheap.checked = false;
+    }
+});
+
+sortCheap.addEventListener('change', () => {
+    if (sortCheap.checked) {
+        sortCurrentBooks('price', 'asc');
+        sortExpensive.checked = false;
+    }
+});
+
+clearBtn.addEventListener('click', clearSearchAndFilters);
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadBooks(); 
+    loadBooks();
 });
