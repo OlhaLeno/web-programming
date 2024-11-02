@@ -1,0 +1,8 @@
+.view-more-button {
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #504959;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

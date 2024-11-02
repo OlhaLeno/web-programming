@@ -1,0 +1,33 @@
+
+.tiles {
+    display: flex;
+    justify-content: space-around; 
+    gap: 50px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  .tile {
+    text-align: center;
+    width: 350px; 
+  }
+  
+  .tile-image img{
+    width: auto;
+    height: 200px; 
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+  }
+  
+  .tile h2{
+    font-size: 20px;
+    color: #504959;
+  }
+  
+  .tile p{
+    font-size: 15px;
+    color: #504959;
+  }
+  
