@@ -1,0 +1,66 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr); 
+  gap: 16px; 
+  padding: 16px; 
+}
+
+.book-card {
+  border: 1px solid #ddd; 
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tiles {
+    display: flex;
+    justify-content: space-around; 
+    gap: 50px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  .tile {
+    text-align: center;
+    width: 450px; 
+    background-color: #cea68445;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+  }
+
+  .tile:hover {
+    transform: scale(1.05); 
+  }
+
+  .tile-image img{
+    width: auto;
+    height: 180px; 
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 12px;
+  }
+  
+  .tile h2{
+    font-size: 16px;
+    color: #8b2b12;
+  }
+  
+  .tile p{
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+  }
+ 
+.view-mores {
+  grid-column: span 4;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #55311a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  height:60px;
+}

@@ -1,0 +1,97 @@
+.book-details {
+    display: flex;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    position: relative; 
+    background-color: #ca9a7147;
+  }
+  
+  .book-details-image {
+    width: 600px;
+    height: 400px;
+    border-radius: 8px;
+    margin-right: 30px;
+  }
+  
+
+  
+  
+  
+  .price {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+  }
+  
+  .characteristics {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .characteristic {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .characteristic:nth-child(1) {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .characteristic:nth-child(2) {
+    background-color: #4f9ea3;
+    color: #fff;
+  }
+  .buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 600px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px; 
+    width: 200px;
+    cursor: pointer;
+    border: 2px solid #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .go-back-button {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .go-back-button:hover {
+    background-color: #5f0000;
+    color: #fff;
+  }
+  
+  .add-to-cart-button {
+    background-color: #932000;
+    color: #fff;
+    border: none; 
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #6e2800;
+  }
+  
+  .ItemsFilter {
+    width: 200px;
+    height: 40px;
+    margin-left: 30px;
+    font-size: 16px;          
+    border: 1px solid #ccc;  
+    border-radius: 8px;      
+    background-color: #fff;   
+    cursor: pointer;          
+    transition: border-color 0.3s ease; 
+  }
