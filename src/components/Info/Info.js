@@ -5,21 +5,16 @@ import { useBookContext } from '../../context/BookContext';
 
 const ItemPage = () => {
     const { id } = useParams();
-    
+
     const navigate = useNavigate(); 
     const { books } = useBookContext(); 
-
     
     const book = books.find((book) => book.id === parseInt(id));
 
     if (!book) {
         return <div>Книжку не знайдено.</div>;
     }
-
     
-    const goBackToCatalog = () => {
-        navigate('/catalog');
-    };
 
     return (
         <div className="book-details">
@@ -53,7 +48,7 @@ const ItemPage = () => {
             
             <p className="price">Ціна: {book.price} грн</p>
             <div className="buttons">
-                <button className="go-back-button" onClick={goBackToCatalog}>Повернутись</button>
+                <button className="go-back-button" onClick={() => navigate(-1)}>Повернутись</button>
                 <button className="add-to-cart-button">Додати до кошика</button>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './BookCard.css';
+import PrimaryButton from '../../PrimaryButton/PrimaryButton';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -20,7 +21,7 @@ function BookCard({ book }) {
       <p><strong>Кількість сторінок: </strong>{pages}</p>
       <p><strong>Анотація: </strong>{description}</p>
       <p><strong>Ціна: </strong>{price} грн</p>
-      
+      <PrimaryButton label="Дізнатись більше" onClick={handleNavigate} />
     </div>
   );
 }
