@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const books = require('../data/books.json');
+const books = require('../data/Books.json');
 
 
 router.get('/books', (req, res) => {
@@ -22,7 +22,7 @@ router.get('/books', (req, res) => {
   }
 
   if (genre) {
-    filteredBooks = filteredBooks.filter(book => book.genre <= parseInt(genre));
+    filteredBooks = filteredBooks.filter(book => book.genre === genre);
     
   }
   
