@@ -1,0 +1,51 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #73462982;
+  color: white;
+}
+
+.branding,
+.social-icons {
+  flex: 1;
+  text-align: center;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; 
+  gap: 15px; 
+}
+
+.social-icons a {
+  color: white;
+  text-decoration: none; 
+}
+
+.social-icons img {
+  width: 30px; 
+  height: auto; 
+}
+
+.social-icons a:hover img {
+  opacity: 0.8; 
+}
+
+.copyright {
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  color: black;
+  font-weight: 600;
+}
+
+.logo img {
+  width: 150px; 
+  height: auto;
+}

@@ -1,0 +1,8 @@
+.books-list {
+  max-width: 1200px;
+  margin: 80px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  gap: 45px;
+  padding: 20px;
+}

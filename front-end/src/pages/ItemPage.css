@@ -1,0 +1,24 @@
+/* src/pages/ItemPage.css */
+.item-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.item-page img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.item-page h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.item-page p {
+    font-size: 16px;
+    color: #000000;
+}

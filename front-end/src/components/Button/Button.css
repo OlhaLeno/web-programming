@@ -1,0 +1,15 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+    margin-bottom: 30px;
+}
+
+.view-more-button {
+    padding: 10px 20px;
+    background-color: #734629c9;
+    color: rgb(255, 255, 255);
+    border: none;
+    cursor: pointer;
+    font-size: large;
+}
