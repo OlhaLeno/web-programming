@@ -8,7 +8,6 @@ function BookCard({ id }) {
   const navigate = useNavigate();
   const { books } = useBookContext();
 
-  
   const book = books.find(book => book.id === id);
   
   if (!book) {
@@ -21,8 +20,10 @@ function BookCard({ id }) {
     navigate(`/book/${id}`);
   };
 
-  
-  const imagePath =require( `../../../assents/images/${image}`);
+  // Базовий URL бекенду
+  const BACKEND_URL = "http://localhost:5000/static/media";
+  // Формування повного шляху до зображення
+  const imagePath = `${BACKEND_URL}/${image}`;
 
   return (
     <div className="book-card">

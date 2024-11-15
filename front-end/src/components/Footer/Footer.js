@@ -19,8 +19,8 @@ const Footer = () => {
       <a href="#twitter" className="twitter">
         <img src="./twitter.svg" alt="Twitter" /> 
       </a>
-      <a href="#linkedin" className="linkedin">
-        <img src="./instagram.svg" alt="LinkedIn" /> 
+      <a href="#instagram" className="instagram">
+        <img src="./instagram.svg" alt="Instagram" /> 
       </a>
       <a href="#google" className="google">
         <img src="./in.svg" alt="Google+" /> 

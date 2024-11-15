@@ -5,7 +5,6 @@ import { useBookContext } from '../../context/BookContext';
 
 const ItemPage = () => {
     const { id } = useParams();
-
     const navigate = useNavigate(); 
     const { books } = useBookContext(); 
     
@@ -14,12 +13,15 @@ const ItemPage = () => {
     if (!book) {
         return <div>Книжку не знайдено.</div>;
     }
-    
+
+    // Базовий URL для зображень на бекенді
+    const BACKEND_URL = "http://localhost:5000/static/media";
+    const imagePath = `${BACKEND_URL}/${book.image}`;
 
     return (
         <div className="book-details">
             <img 
-                src={require(`../../assents/images/${book.image}`)} 
+                src={imagePath} 
                 alt={book.title} 
                 className="book-details-image"
             />
@@ -34,10 +36,10 @@ const ItemPage = () => {
                 <p><strong>Жанр книжки: </strong> {book.genre}</p>
 
                 <select className="ItemsFilter">
-                <option value="">Обкладинка</option>
-                <option value="Тверда">Тверда</option>
-                <option value="М'яка">М'яка</option>
-                <option value="суперобкладинка">Суперобкладинка</option>
+                    <option value="">Обкладинка</option>
+                    <option value="Тверда">Тверда</option>
+                    <option value="М'яка">М'яка</option>
+                    <option value="суперобкладинка">Суперобкладинка</option>
                 </select>
                 <select className="ItemsFilter">
                     <option value="">Кількість: </option>
