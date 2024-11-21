@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Grid.css';
 import BookCard from './BookCard/BookCard';
 import Loader from '../Loader/Loader';
-import { getProducts } from '../../api/axiosConfig';
+import { getBooks } from '../../api/axiosConfig';
 
 function Grid() {
   const [books, setBooks] = useState([]); 
@@ -14,7 +14,7 @@ function Grid() {
     const fetchBooks = async () => {
       setLoading(true);
       try {
-        const response = await getProducts(); 
+        const response = await getBooks(); 
         setBooks(response.data); 
         setLoading(false);
       } catch (error) {

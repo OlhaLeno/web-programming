@@ -1,71 +1,69 @@
 import React, { useState, useEffect } from 'react';
-import booksData from '../../data/Books.json';
 import BookCard from './BookCard/BookCard';
 import Filters from '../Filters/Filters';
 import Loader from '../Loader/Loader';
-import { getProducts } from '../../api/axiosConfig';
+import  {getBooks} from '../../api/axiosConfig';
 import './BooksList.css';
 
 function BooksList({ searchTerm }) {
-    const [books, setBooks] = useState([]); 
+    const [books, setBooks] = useState([]);
     const [filters, setFilters] = useState({ price: '', pages: '', genre: '' });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     const fetchBooks = async (filters) => {
         setLoading(true);
-        setError(null);
         try {
-            const response = await getProducts(filters);
+            const response = await getBooks(filters);
             setBooks(response.data);
+            setLoading(false);
         } catch (error) {
-            setError(error.message); 
-        } finally {
+            setError(error.message);
             setLoading(false);
         }
     };
 
-   
     useEffect(() => {
         fetchBooks(filters);
     }, [filters]);
 
-
-    const handleFilterChange = (selectedFilters) => {
-        setFilters(selectedFilters);
+    const handleFilterChange = (newFilters) => {
+        setFilters(newFilters);
     };
 
-    const filteredBooks = booksData.filter((book) => {
-      const priceMatch = filters.price ? book.price <= Number(filters.price) : true;
-      const pagesMatch = filters.pages ? book.pages <= Number(filters.pages) : true;
-      const genreMatch = filters.genre ? book.genre === filters.genre : true;
-      
-        const searchMatch = searchTerm 
-            ? book.title.toLowerCase().includes(searchTerm.toLowerCase().trim()) 
-            : true;
-  
-      return priceMatch && pagesMatch && genreMatch && searchMatch;
-  });
-  
+    const filteredBooks = books.filter((book) =>
+        searchTerm
+            ? book.title.toLowerCase().includes(searchTerm.toLowerCase().trim())
+            : true
+    );
 
     return (
         <div>
             <Filters onFilterChange={handleFilterChange} />
-
-            <div className="books-list">
-                {filteredBooks.map((book) => (
-                    <BookCard
-                        key={book.id}
-                        id={book.id}
-                        name={book.title}
-                        pages={book.pages}
-                        genre={book.genre}
-                        image={book.image}
-                        price={book.price}
-                        description={book.description}
-                    />
-                ))}
-            </div>
+            {loading ? (
+                <Loader />
+            ) : error ? (
+                <div>Error: {error}</div>
+            ) : (
+                <div className="books-list">
+                    {filteredBooks.length > 0 ? (
+                        filteredBooks.map((book) => (
+                            <BookCard
+                                id={book.id}
+                                key={book.id}
+                                name={book.title}
+                                price={book.price}
+                                pages={book.pages}
+                                genre={book.genre}
+                                image={book.image}
+                                description={book.description}
+                            />
+                        ))
+                    ) : (
+                        <div>Книга не знайдена</div>
+                    )}
+                </div>
+            )}
         </div>
     );
 }

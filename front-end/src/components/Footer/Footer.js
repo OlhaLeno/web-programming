@@ -14,16 +14,16 @@ const Footer = () => {
       </div>
       <div className="social-icons">
       <a href="#facebook" className="facebook">
-        <img src="./facebook.svg" alt="Facebook" />
+        <img src="/facebook.svg" alt="Facebook" />
       </a>
       <a href="#twitter" className="twitter">
-        <img src="./twitter.svg" alt="Twitter" /> 
+        <img src="/twitter.svg" alt="Twitter" /> 
       </a>
       <a href="#instagram" className="instagram">
-        <img src="./instagram.svg" alt="Instagram" /> 
+        <img src="/instagram.svg" alt="Instagram" /> 
       </a>
       <a href="#google" className="google">
-        <img src="./in.svg" alt="Google+" /> 
+        <img src="/in.svg" alt="Google+" /> 
       </a>
     </div>
       <div className="copyright">
