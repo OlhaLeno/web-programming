@@ -1,0 +1,52 @@
+import React from 'react';
+import './BookCard.css';
+import PrimaryButton from '../../PrimaryButton/PrimaryButton';
+import { useNavigate } from 'react-router-dom';
+const BookCard=({id, title, genre, pages, description, image, price }) => {
+  const navigate = useNavigate();
+
+  const BACKEND_URL = "http://localhost:5000/static/media";
+  const imagePath = `${BACKEND_URL}/${image}`;
+
+  const handleNavigate = () => {
+    navigate(`/book/${id}`);
+  };
+
+// import { useBookContext } from '../../../context/BookContext';
+
+// function BookCard({ id }) {
+//   const navigate = useNavigate();
+//   const { books } = useBookContext();
+
+//   const book = books.find(book => book.id === id);
+  
+//   if (!book) {
+//     return <p>Книжку не знайдено</p>;
+//   }
+
+//   const { title, image, genre, pages, description, price } = book;
+  
+//   const handleNavigate = () => {
+//     navigate(`/book/${id}`);
+//   };
+
+//   // Базовий URL бекенду
+//   const BACKEND_URL = "http://localhost:5000/static/media";
+//   // Формування повного шляху до зображення
+//   const imagePath = `${BACKEND_URL}/${image}`;
+
+  return (
+    <div className="book-card">
+      <img src={imagePath} alt={title} className="book-image" />
+      <h3>{title}</h3>
+      <p><strong>Жанр: </strong>{genre}</p>
+      <p><strong>Кількість сторінок: </strong>{pages}</p>
+      <p><strong>Анотація: </strong>{description}</p>
+      <p><strong>Ціна: </strong>{price} грн</p>
+
+      <PrimaryButton label="Дізнатись більше" onClick={handleNavigate} />
+    </div>
+  );
+}
+
+export default BookCard;

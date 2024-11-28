@@ -1,0 +1,20 @@
+.cart-summary {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.back-button, .continue-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.back-button {
+    background: #af5a19;
+}
+
+.continue-button {
+    background: #7f3f0e;
+    color: white;
+    border: none;
+}
