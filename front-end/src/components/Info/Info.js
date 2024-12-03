@@ -43,18 +43,27 @@ const ItemPage = () => {
     };
 
     const priceMultiplier = getPriceMultiplier(cover);
-    const totalPrice = book.price * numbers * priceMultiplier;
+    const totalPrice = (book.price * numbers * priceMultiplier); 
 
     const handleAddToCart = () => {
         const bookWithDetails = { ...book, numbers, cover, totalPrice };
-        
+        const uniqueId = `${book.id}_${cover}`;
+
         let currentCart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        const existingIndex = currentCart.findIndex(item => item.id === bookWithDetails.id);
+        const existingIndex = currentCart.findIndex(item => item.id === uniqueId);
         if (existingIndex > -1) {
             currentCart[existingIndex].numbers += bookWithDetails.numbers;
         } else {
-            currentCart.push(bookWithDetails);
+            currentCart.push({
+                id: uniqueId,
+                title: book.title,
+                price: book.price,
+                cover: cover,
+                numbers: numbers,
+                image: book.image,
+                totalPrice: bookWithDetails.totalPrice
+            });
         }
 
         localStorage.setItem('cart', JSON.stringify(currentCart));
@@ -115,9 +124,9 @@ const ItemPage = () => {
                 <button 
                     className="add-to-cart-button" 
                     onClick={handleAddToCart}
-                    disabled={!numbers || !cover}
+                    disabled={numbers < 1 || !cover} 
                 >
-                    Додати до корзини
+                    Додати до кошика
                 </button>
             </div>
         </div>
